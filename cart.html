@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cart</title>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Főoldal</a></li>
+            <li class="dropdown">
+                <a href="products.html">Termékeink</a>
+                <ul class="dropdown-menu">
+                    <li><a href="product4.html">Fehérje</a></li>
+                    <li><a href="product5.html">Bcaa</a></li>
+                    <li><a href="product6.html">Kreatin</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Elérhetőségek</a></li>
+            <li>
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-text">Kosár</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="cart-container">
+    <h1>Kosarad</h1>
+    <div class="cart-items" id="cart-items"></div>
+    <h2>Total: <span id="total-price">0 Ft</span></h2>
+    <button class="button checkout">Fizetés</button>
+</div>
+<div id="empty-cart-message" style="display: none;">
+    A kosár üres.
+</div>
+<footer>
+    <p>&copy; 2024 NutriJoy</p>
+    <div class="social-media">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+    </div>
+</footer>
+
+<script>
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+
+    function loadCart() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let total = 0;
+        cartItemsContainer.innerHTML = '';
+
+        cartItems.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            cartItemsContainer.innerHTML += `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <h2>${item.name}</h2>
+                        <p>Ár: ${item.price} Ft</p>
+                        <p>Darab: ${item.quantity}</p>
+                    </div>
+                    <button class="button remove-item" data-name="${item.name}">Törlés</button>
+                </div>
+            `;
+        });
+
+        totalPriceElement.textContent = `${total} Ft`;
+    }
+
+    function removeItem(itemName) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const updatedItems = cartItems.filter(item => item.name !== itemName);
+        localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+        loadCart();
+    }
+
+    cartItemsContainer.addEventListener('click', function(event) {
+        if (event.target.classList.contains('remove-item')) {
+            const itemName = event.target.getAttribute('data-name');
+            removeItem(itemName);
+        }
+    });
+
+    loadCart();
+</script>
+
+</body>
+</html>

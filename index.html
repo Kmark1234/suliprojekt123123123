@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>NutriJoy</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo"> 
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Főoldal</a></li>
+                <li class="dropdown">
+                    <a href="products.html">Termékeink</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="product4.html">Fehérje</a></li>
+                        <li><a href="product5.html">Bcaa</a></li>
+                        <li><a href="product6.html">Kreatin</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Elérhetőségek</a></li>
+                <li>
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-text">Kosár</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img class="carousel-image" src="image1.jpg" alt="Image 1"> 
+                <div class="overlay">
+                    <button class="carousel-button">Shop Now</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-image" src="image2.jpg" alt="Image 2">
+                <div class="overlay">
+                    <button class="carousel-button">Shop Now</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-image" src="image3.jpg" alt="Image 3">
+                <div class="overlay">
+                    <button class="carousel-button">Shop Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-container">
+            <h2 style="color: black; align-content: center;">Friss Hirek </h2>
+            <div class="news-item">
+                <img src="news1.jpg" alt="News 1"> 
+                <h2>Crish Bumstead a Legújabb Promóterünk!</h2>
+                <p>Nagy örömmel jelentjük be, hogy csapatunkhoz csatlakozott Crish Bumstead, a testépítő világ egyik legnagyobb neve, mint legújabb promóterünk. Crish nemcsak a sportban elért eredményeiről híres, hanem a szenvedélyéről és elhivatottságáról is, amelyek tökéletesen illeszkednek a márkánk értékeihez.</p>        
+                <div class="button-container">
+                    <a href="news1.html" class="button">Érdekel</a>
+                </div>        
+            </div>
+            <div class="news-item">
+                <img src="news2.jpg" alt="News 2">
+                <h2>Legkeresettebb Termékünk: Az Új Formulájú Fehérjepor!</h2>
+                <p>Örömmel osztjuk meg, hogy legújabb fehérjeporunk, amely egy továbbfejlesztett formulával készült, a vásárlóink körében azonnal a legkeresettebb termékké vált! Az új összetétel nemcsak hatékonyabb izomépítést tesz lehetővé, hanem kiváló ízélményt is nyújt. Próbáld ki Te is, és tapasztald meg a különbséget!</p>                
+                <div class="button-container">
+                    <a href="news2.html" class="button">Érdekel</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="news3.jpg" alt="News 3">
+                <h2>A 2025-ös Mr. Olympia Fő Szponzora Lettünk!</h2>
+                <p>Büszkén jelentjük be, hogy cégünk a 2025-ös Mr. Olympia testépítő verseny egyik fő szponzora! Ez a világ egyik legnagyobb presztízsű eseménye, ahol a sportág legjobbjai mérik össze tudásukat. Nagy izgalommal várjuk, hogy részesei lehessünk ennek a nemzetközi versenynek, és támogassuk a testépítés jövőbeli bajnokait!</p>
+                <div class="button-container">
+                    <a href="news3.html" class="button">Érdekel</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-carousel">
+            <h3 style="text-align: center;">Ahhoz, hogy elérd a sportban kitűzött céljaidat, nemcsak kemény edzésekre és megfelelő étrendre van szükséged, hanem minőségi táplálékkiegészítőkre is. Íme néhány alapvető termék, amit mi ajánlunk neked, hogy gyorsabban és hatékonyabban érj el eredményeket!</h3>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="product4.jpg" alt="Product 4">
+                    <h3>Fehérje 1Kg</h3>
+                    <p>Ár: 7999Ft</p>
+                    <a href="product4.html" class="button">termék</a>
+                </div>
+                <div class="product-item">
+                    <img src="product5.jpg" alt="Product 5">
+                    <h3>Bcaa  500g </h3>
+                    <p>Ár: 5999Ft</p>
+                    <a href="product5.html" class="button">termék</a>
+                </div>
+                <div class="product-item">
+                    <img src="product6.jpg" alt="Product 6">
+                    <h3>Kreatin 500g</h3>
+                    <p>Ár: 7999Ft</p>
+                    <a href="product6.html" class="button">termék</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 NutriJoy</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = (i === index) ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 10000); 
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
